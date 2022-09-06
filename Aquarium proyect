@@ -67,7 +67,9 @@ class fish:
 #f3 = fish()
 lefesh = list()
 
-for i in range (20):
+fisham = 5 # fish ammount
+
+for i in range (fisham):
   lefesh.append(fish())
 
 while not doExit:
@@ -84,7 +86,7 @@ while not doExit:
    # f2.move()
    # f3.move()
 
-    for i in range(20):
+    for i in range(fisham):
      lefesh[i].move()
 
 
@@ -94,7 +96,7 @@ while not doExit:
     #f2.draw()
     #f3.draw()
 
-    for i in range(20):
+    for i in range(fisham):
       lefesh[i].draw()
 
 
