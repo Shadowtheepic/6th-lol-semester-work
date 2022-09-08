@@ -1,0 +1,23 @@
+import pygame as py
+import random
+py.init()
+screenw = 800
+screenh = 800
+w = py.display.set_mode((screenw,screenh))
+py.display.set_caption("City skyline")
+clock = py.time.Clock()
+gl = True
+
+bruh = int(input("enter how many buildings you want\n"))
+
+
+for i in range(0,bruh, 1):
+    py.draw.rect(w, (random.randrange(0, 255),random.randrange(0, 255),random.randrange(0, 255)), (i*(screenw/bruh),0, screenw/bruh, random.randrange(100, 600)))
+    py.display.flip()
+    
+    
+    
+    
+    
+
+       
