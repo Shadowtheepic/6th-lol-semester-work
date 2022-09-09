@@ -1,0 +1,50 @@
+import random
+
+#a mild
+for i in range(3, 34, 5):
+    print(i)
+
+#b mild
+
+for z in range(100, 49, -2):
+    print(z)
+g = 1
+
+#c mild
+while g != 0:
+    g = int(input("Enter a number to multiply times 2, or 0 to quit \n"))
+    print((g*2))
+    
+#a medium
+
+def monst():
+    
+    monsta = random.randrange(1,100)
+    
+    if monsta < 10:
+        print("Witch spawned")
+    elif monsta > 10 and monsta < 30:
+        print("aye, a zombie!!")
+    elif monsta > 30 and monsta < 60:
+        print("bruh a Skeleton")
+    else:
+        print("A spiader")
+        
+monst()
+
+
+#b medium
+
+def avg(a,b):
+    average = (a+b)/2
+    
+    print (average)
+
+one = int(input ("we're gonna find the average of two numbers, input the first one \n"))
+
+two = int(input("Now the second one \n"))
+
+avg(one,two)
+
+#No need for spicy
+    
