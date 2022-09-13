@@ -1,0 +1,31 @@
+import pygame
+
+
+    
+
+
+
+
+
+
+        
+    if event.type == pygameMOUSEMOTION:
+        mousePos = event.pos
+#render section lol
+
+    for i in range(0,len(AppList)):
+        AppList[i].draw()
+    
+    
+    pygame.draw.circle(screen, (AppList[len(AppList)-1].giveColor()), (100,50), 50)
+    pygame.draw.circle(screen, (AppList[len(AppList)-2].giveColor()), (200,50), 50)
+    pygame.draw.circle(screen, (AppList[len(AppList)-3].giveColor()), (300,50), 50)
+    
+    
+    
+    
+    pygame.draw.line(screen, (255, 255, 255), (0,100), (400, 100), 2)
+    
+    pygame.display.flip()
+
+pygame.quit()
