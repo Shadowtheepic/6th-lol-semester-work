@@ -1,0 +1,37 @@
+#mild
+import math
+
+bruh = int(input("Input 3 numbers\n"))
+bruhr = int(input())
+bruhd = int(input())
+
+print ((bruh+bruhr+bruhd)/3)
+
+
+deez = int(input("Now imput 2 numbers\n"))
+dees = int(input())
+
+print("the square roots of the numbers are, ", float(math.sqrt(deez)), " and ", float(math.sqrt(dees)))
+
+print("The first raised to the second is: ", deez ** dees)
+
+#mideum (I'm not fixiung this)
+
+def PythagoreanCheck(de, ez, lol):
+    
+    if de**2 + ez**2 == lol**2:
+        return True
+    else:
+        return False
+    
+de = int(input("Input 3 numbers\n"))
+ez = int(input())
+lol = int(input())
+
+if PythagoreanCheck(de, ez, lol) == True:
+    print ("Passed pythag")
+else:
+    print("nah")
+
+    
+
