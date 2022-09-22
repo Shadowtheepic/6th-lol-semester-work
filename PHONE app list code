@@ -4,8 +4,8 @@ import random
 
 pygame.init()
 pygame.display.set_caption("phone lol")
-screenwidth = 600
-screenheight = 600
+screenwidth = 400
+screenheight = 400
 screen = pygame.display.set_mode((screenwidth, screenheight))
 clock = pygame.time.Clock()
 
@@ -18,11 +18,12 @@ class phone():
         self.color = color
     def draw(self):
         pygame.draw.circle(screen, (self.color), (self.xpos, self.ypos), 50)
-        
-        
-        
+    def giveColor(j):
+        clr = ( random.randrange(0,255),  random.randrange(0,255),  random.randrange(0,255))
     
-def giveColor():
+        return clr
+    
+def randclr():
     clr = ( random.randrange(0,255),  random.randrange(0,255),  random.randrange(0,255))
     
     return clr
@@ -31,7 +32,7 @@ AppList = list()
 
 for i in range(3):
     for j in range (3):
-        AppList.append(phone(i * 100, j * 100, giveColor()))
+        AppList.append(phone(i * 100 + 100, j * 100 + 150, randclr()))
 
 doExit = False
 
@@ -40,10 +41,14 @@ while not doExit:
     
     clock.tick(60)
     
-    event.pygame.event.get()
+    events = pygame.event.get()
+
+    for event in events:
+      if event.type == pygame.quit:
+        doExit = True
     
     
-    if event.type == pygameMOUSEMOTION:
+    if event.type == pygame.MOUSEMOTION:
         mousePos = event.pos
 #render section lol
 
