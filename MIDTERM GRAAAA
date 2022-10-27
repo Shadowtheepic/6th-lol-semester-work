@@ -1,0 +1,49 @@
+bruhckies = int(input("Enter how many cookies you got?"))
+
+if bruhckies < 3:
+    print("not enough tbh")
+if bruhckies > 3 and bruhckies < 10:
+    print("you got a good ammount tbh")
+if bruhckies >10:
+    print("Too many cookies, give me one")
+    bruhckies -=1 #it's only fair, and to my point, the way it's worded implies that I tell them they have too many cookies, comma, then they should give me one
+
+jedireal = input("So are you a jedi or a sith?")
+
+if jedireal == 'jedi':
+    print("here's a green lightsaber")
+elif jedireal == 'sith':
+    print("here's a red lightsaber")
+else:
+    print("here's a breadstick")
+    
+
+for i in range(4, 41, 2):
+    print(i)
+    
+l = 100
+
+while l > 49:
+    print(l)
+    l-=10
+
+orang = 'bruh'
+
+while orang != 'orange':
+    orang = input("knock knock, who's there...banana!")
+print("Orange you glad I didn't say banana?!")
+
+def deez(bruh, bruh2, g):
+    return(bruh*bruh2*g)
+
+print(deez(2,3,4))
+
+def func(x):
+    print(x, "bottles of root beer on the wall...")
+    x-=1
+    if x >0:
+        func(x)
+
+bruh = int(input("how many bottles of root beer on da wall"))
+
+func(bruh)
