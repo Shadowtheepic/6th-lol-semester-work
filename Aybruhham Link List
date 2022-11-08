@@ -24,11 +24,17 @@ class LinkedList:
         while current:
             print("Student name:", current.name, ", ID:", current.ID, ", Favorite Color:", current.color)
             current = current.next
-    '''def amoung(self, name):
+    def amoung(self, name):
         current = self.head
-        us = False
-        if current != name:
-            print() '''
+        task = 1
+        while current:
+            if current.name != name:
+                print("slot ", task, "is not", name)
+                current = current.next
+                task += 1
+            elif current.name == name:
+                print("It's true!! slot", task, "is", name)
+                break
 
     def size(self):
         current = self.head
@@ -48,4 +54,4 @@ StudentLine.insert("Milk", 141437, "White")
 StudentLine.insert("Chocolate", 9267701, "Brown")
 StudentLine.printList()
 StudentLine.size()
-
+StudentLine.amoung("Jon")
