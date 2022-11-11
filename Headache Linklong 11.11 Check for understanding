@@ -1,0 +1,185 @@
+import random
+
+candy = [0, 0, 0, 0, 0, 0]
+
+def candyrandom():
+    cander = random.randrange(1, 101)
+    cnday = random.randrange(1,5)
+    
+    if cander <= 15:
+        candy[0] = candy[0] + cnday
+        print("you got", cnday, "Butterfinger bars!")
+    elif cander > 15 and cander <= 35:
+        candy[1] = candy[1] + cnday
+        print("you got", cnday, "Hershey bars!")
+    elif cander > 35 and cander <= 70:
+        candy[2] = candy[2] + cnday
+        print("you got", cnday, "PB cups!")
+    elif cander > 70 and cander <= 80:
+        candy[3] = candy[3] + cnday
+        print("you got", cnday, "M&M bags!")
+    elif cander > 80 and cander <= 98:
+        candy[4] = candy[4] + cnday
+        print("you got", cnday, "sour patch kids")
+    else:
+        candy[5] = candy[5] + 1
+        print("you got a rock.")
+        
+for i in range(5):
+    candyrandom()
+    
+print( "final candy count for each kind:" , candy)
+
+
+class fridge:
+    def __init__(self):
+        self.NumberOfItems = 0
+        self.DoorOpen = False
+        self.isRunning = True
+    
+    def status(self):
+        print(" the fridge has ", self.NumberOfItems, " items inside. The door is open? That's", self.DoorOpen)
+        
+        if self.isRunning == True:
+            print("also, go catch the fridge, it seems to be RUNNING")
+    def openDoor(self):
+        self.DoorOpen = True
+        print("opening da door")
+    
+    def closeDoor(self):
+        self.DoorOpen = False
+        print("closing da door")
+    def fillFridge(self, filla):
+        if self.DoorOpen == True:
+            print("inserted", filla, "items into da fridg")
+            self.NumberOfItems += filla
+        else:
+            print("error, cannot insert items through solid matter")
+    def MakeDinner(self):
+        if self.NumberOfItems >= 10:
+            self.NumberOfItems -= 10
+            print ("Making dinner, taking 10 items, now have", self.NumberOfItems, "in fridg")
+        else:
+            ("not enough items to make dinner")
+fridg = fridge()
+
+fridg.status()
+
+fridg.openDoor()
+
+fridg.fillFridge(9)
+fridg.MakeDinner()
+
+fridg.closeDoor()
+fridg.fillFridge(11)
+
+fridg.openDoor()
+fridg.fillFridge(12)
+
+fridg.status()
+
+fridg.MakeDinner()
+
+fridg.status()
+
+
+class Train:
+    def __init__(self, tipo, ID, isFull,durationHron, frequencyHron, next = None):
+        self.type = tipo
+        self.ID = ID
+        self.isFull = isFull
+        self.hornDuration = durationHron
+        self.hornFrequency = frequencyHron
+        self.next = next
+        
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def insert(self,tipo, ID, isFull, durationHron, frequencyHron):
+        newStudent = Train(tipo, ID, isFull, durationHron, frequencyHron) #instantiate a new student node
+        if self.head: #check if a head exists
+            current = self.head #create a temporary pointer to the head node
+            #while there's another node in the line, "walk down the line until the end
+            while current.next:
+                current = current.next
+            current.next = newStudent #add the new student to the end
+        else:
+            self.head = newStudent #if there was no head stdent, insert at front of empty line
+    def printList(self):
+        current = self.head
+        while current:
+            print("Train type:", current.type, ", ID:", current.ID, ", is it full?", current.isFull, "the horn is", current.hornDuration, "long. It blares at", current.hornFrequency , " frequency")
+            current = current.next
+    def amoung(self, check):
+        current = self.head
+        task = 1
+        while current:
+            if current.ID != check:
+                print("slot ", task, "is not", check)
+                current = current.next
+                task += 1
+            elif current.ID == check:
+                print("It's true!! slot", task, "is", check)
+                print("ok, so", current.ID, "holds", current.type)
+                break
+
+    def size(self):
+        current = self.head
+        size = 0
+        while current:
+            current = current.next
+            size += 1
+        print("There are:", size, "Trains")
+        
+    def search(self, search):
+        current = self.head
+        amm = 0
+        while current:
+            current = current.next
+            if current.type == search:
+                amm +=1
+        print("There are:", amm, "train cars that are", search, "type")
+    def toot(self):
+        current = self.head
+        while current:
+            print(current.type, "honks it's horn for ", current.hornDuration, " seconds. It's blaring at", current.hornFrequency , " frequency")
+            current = current.next
+        
+        
+#instantiate a list
+StudentLine = LinkedList()
+StudentLine.insert("locomotive", 456987, False, 5, 1.3)
+StudentLine.insert("coal", 123987, False, 3, 1.8)
+StudentLine.insert("oil", 4, False, 1, 19)
+StudentLine.insert("automobile", 1329,False, 4, 2)
+StudentLine.insert("shipping", 141437, False, 13, 21)
+StudentLine.insert("oil", 9267701, False, 2, 4)
+StudentLine.printList()
+
+lop = True
+
+while lop == True:
+    dez = input("what do you want to do    ")
+    
+    if dez == 'search':
+        ser = int(input("search for what ID"))
+        StudentLine.amoung(ser)
+    if dez == 'add':
+        tip = input("input the train type")
+        ideez = input("now input the train ID")
+        ifful = input("now input if it's full")
+        hrojnlen = input("now input the horn length")
+        hronfrenc = input("now input the horn frequency")
+        print("now inserting a train that's ", tip, ", ID:", ideez, ", is it full?", ifful, "the horn is", hrojnlen, "long. It blares at", hronfrenc , " frequency")
+        StudentLine.insert(tip, ideez, ifful, hrojnlen, hronfrenc)
+    if dez == 'status':
+        StudentLine.printList()
+    if dez == 'cargotip':
+        datip = input("what type of train??")
+        StudentLine.search(datip)
+    if dez == 'toot':
+        StudentLine.toot()
+
+        
+    
