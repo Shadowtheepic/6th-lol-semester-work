@@ -1,0 +1,32 @@
+stuffs = list()
+
+
+def shop(coin, items):
+    
+    print ("Welcome to the shop! You have", coin, "coins!")
+    print("Your items: ", items)
+    print("Shop items: Potions $5, Food: $3. Keys: $10")
+    j = input ("Press p to purchase a potion, f for food, k for key, and q to quit :")
+    
+    if j == 'p' and coin >= 5:
+        print("You got a Potion!")
+        shop(coin-5, items)
+        items.append("potion")
+    elif j == 'f' and coin >= 3:
+        print("You got food!")
+        shop(coin-3, items)
+    elif j == 'k' and coin >= 10:
+        print("You got a key!")
+        shop(coin-10, items)
+    elif j == 'q':
+        print ("bye!")
+    else:
+        print("sorry, you don't have enoughy money")
+        shop(coin, items)
+
+dolla = int(input ("How much moneres you have?"))
+
+shop(dolla, stuffs)
+
+
+        
