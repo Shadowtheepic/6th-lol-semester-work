@@ -10,13 +10,16 @@ def shop(coin, items):
     
     if j == 'p' and coin >= 5:
         print("You got a Potion!")
-        shop(coin-5, items)
         items.append("potion")
+        shop(coin-5, items)
+        
     elif j == 'f' and coin >= 3:
         print("You got food!")
+        items.append("food")
         shop(coin-3, items)
     elif j == 'k' and coin >= 10:
         print("You got a key!")
+        items.append("key")
         shop(coin-10, items)
     elif j == 'q':
         print ("bye!")
@@ -30,3 +33,4 @@ shop(dolla, stuffs)
 
 
         
+
