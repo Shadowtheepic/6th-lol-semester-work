@@ -15,7 +15,7 @@ int main() {
 	cout << "enter ID you are searching for:" << endl;
 	cin >> searchItem;
 
-	while (location < sizeof(IDs) && !found) {
+	while (location < sizeof(IDs)/sizeof(IDs[0]) && !found) {
 		if (IDs[location] == searchItem)
 			found = true;
 		else
@@ -26,5 +26,5 @@ int main() {
 		cout << "id " << searchItem << " was found in slot " << location << "." << endl;
 	}
 	else
-		cout << "ID 3was not found." << endl;
+		cout << "ID was not found." << endl;
 }
