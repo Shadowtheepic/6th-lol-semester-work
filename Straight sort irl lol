@@ -15,7 +15,7 @@ int main() {
 	cout << "enter ID you are searching for:" << endl;
 	cin >> searchItem;
 
-	while (location < sizeof(IDs)/sizeof(IDs[0]) && !found) {
+	while (location < sizeof(IDs) / sizeof(IDs[0]) && !found) {
 		if (IDs[location] == searchItem)
 			found = true;
 		else
