@@ -1,0 +1,70 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+
+
+int main() {
+
+	srand(time(NULL));
+
+	for (int i = 50; i <= 70; i+=2)
+		cout << i << " ";
+	cout << endl;
+	for (int ig = 100; ig >= 50; ig -= 5)
+		cout << ig << " ";
+	cout << endl;
+	for (int lol = 2; lol <= 2048; lol *= 2) 
+		cout << lol << " ";
+
+	cout << endl;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 6; j++) {
+			cout << "*";
+		}
+		cout << endl;
+	}
+	cout << endl;
+
+	for (int i = 0; i < 5; i++) {
+		for (int j = 1; j < 5; j++) {
+			cout << j << " ";
+		}
+		cout << endl;
+	}
+
+	int buffer2 = 0;
+	int numba[8];
+
+	for (int i = 0; i < 8; i++) {
+		int rando = rand() % 21;
+		numba[i] = rando;
+		cout << numba[i] << " ";
+		buffer2 += numba[i];
+	}
+	int buffer = 0;
+	for (int i = 0; i < 9; i++) {
+		if (numba[i] > numba[i + 1]) {
+			if (numba[i] > buffer) {
+				buffer = numba[i];
+			}
+		}
+	}
+	cout << endl << endl;
+	cout << "the biggest number is " << buffer << endl;
+
+	int smol = 100;
+	for (int i = 0; i < 9; i++) {
+		if (numba[i] < numba[i + 1]) {
+			if (numba[i] < smol) {
+				smol = numba[i];
+			}
+		}
+	}
+
+	cout << "the smol numba is " << smol << endl;
+
+	cout << "the range of the numbers is " << buffer - smol << endl;
+
+	cout << "then da average of the numbers is " << buffer2 / 8 << endl;
+
+}
