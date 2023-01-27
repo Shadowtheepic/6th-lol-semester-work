@@ -1,0 +1,194 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+
+double theorem(int op, int ad);
+
+class paimon {
+private:
+	int hungy;
+	int tire;
+	int boredom;
+public:
+	paimon();
+	void eat();
+	void print();
+	void work();
+	void WatchAnime();
+	void sleep();
+
+};
+
+int main() {
+	paimon s1;
+	paimon s2;
+	paimon s3;
+
+	int cookies;
+	cout << "how many cookies do u have lol" << endl;
+	cin >> cookies;
+
+	if (cookies < 5)
+		cout << "do u want a cookie lol?" << endl;
+	if (cookies >= 5 && cookies < 10)
+		cout << "that's agood amount of cookies LOL" << endl;
+	if (cookies >= 10)
+		cout << "that's too many cookies lmao give me one" << endl;
+
+	char cnar;
+
+	cout << "who do you like best: (b)art simpson, (s)cooby doo, (r)ick, (d)affy duck, or (g)oku" << endl;
+
+	cin >> cnar;
+
+	if (cnar == 'b')
+		cout << "eat my shorts" << endl;
+
+	if (cnar == 's')
+		cout << "scooby dooby doo" << endl;
+	if (cnar == 'r')
+		cout << "Wubba lubba dub dub" << endl;
+	if (cnar == 'd')
+		cout << "sufferin' succotash!" << endl;
+	if (cnar == 'g')
+		cout << "hey it's me, goku!" << endl;
+
+	int room = 0;
+
+	cout << "who do you like best: (b)art simpson, (s)cooby doo, (r)ick, (d)affy duck, or (g)oku" << endl;
+
+	cin >> cnar;
+
+
+	if (cnar == 'b')
+		room = 1;
+		
+
+	if (cnar == 's')
+		room = 2;
+		
+	if (cnar == 'r')
+		room = 3;
+	if (cnar == 'd')
+		room = 4;
+	if (cnar == 'g')
+		room = 5;
+
+	switch (room) {
+	case 1:
+		cout << "eat my shorts" << endl;
+		break;
+	case 2:
+		cout << "scooby dooby doo" << endl;
+		break;
+	case 3:
+		cout << "Wubba lubba dub dub" << endl;
+		break;
+	case 4:
+		cout << "sufferin' succotash!" << endl;
+		break;
+	case 5: 
+		cout << "hey it's me, goku!" << endl;
+		break;
+	}
+
+
+	int input;
+	int input2;
+
+	cout << "do you want ice cream(1) or candy(2) ? " << endl;
+	cin >> input;
+	cout << "Now do you want chocolate(1) or fruit(2) " << endl;
+	cin >> input2;
+
+	if (input == 1) {
+		if (input2 == 1)
+			cout << "you get a hot fudge sundae" << endl;
+		else if (input2 == 2)
+			cout << "you get a strawberry blizzard" << endl;
+	}
+	else if (input == 2) {
+		if (input2 == 1)
+			cout << "you get a hershey bar" << endl;
+		else if (input2 == 2)
+			cout << "you get starbursts" << endl;
+	}
+
+
+	int op;
+	int ad;
+	cout << "pythegorean time, give the opposite and adjacent sides" << endl;
+
+	cin >> op;
+	cout << endl;
+	cin >> ad;
+
+
+	cout << "the hypotenuse for the numbers you've provided is: " << theorem(op, ad) << endl;
+	char clinput = 'd';
+
+	while (clinput != 'q') {
+		s1.print();
+		s2.print();
+		s3.print();
+		cout << "so what do you want to do with the simons? (e)at, (w)ork, w(a)tch anime, or (s)leep" << endl;
+		cin >> clinput;
+
+		if (clinput == 'e') {
+			s1.eat();
+			s2.eat();
+			s3.eat();
+		}
+		if (clinput == 'w') {
+			s1.work();
+			s2.work();
+			s3.work();
+		}
+
+		if (clinput == 'a') {
+			s1.WatchAnime();
+			s2.WatchAnime();
+			s3.WatchAnime();
+		}
+		if (clinput == 's') {
+			s1.sleep();
+			s2.sleep();
+			s3.sleep();
+		}
+	}
+}
+
+
+double theorem(int op, int ad) {
+	return (sqrt(pow(op, 2) + pow(ad, 2)));
+}
+
+paimon::paimon() {
+	hungy = 0;
+	tire = 0;
+	boredom = 0;
+}
+void paimon::eat() {
+	hungy -= 10;
+	cout << "nom nom nom" << endl;
+}
+void paimon::print() {
+	cout << "Simon feeling: " << endl;
+	cout << hungy << " hungry" << endl;
+	cout << tire << " tired" << endl;
+	cout << boredom << " bored" << endl;
+}
+void paimon::work() {
+	hungy += 10;
+	tire += 10;
+	boredom += 10;
+}
+void paimon::WatchAnime() {
+	boredom -= 10;
+	cout << "Hey it/'s me goku" << endl;
+}
+void paimon::sleep() {
+	tire -= 10;
+	cout << "zzzzzzz" << endl;
+}
