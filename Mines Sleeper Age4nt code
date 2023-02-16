@@ -1,12 +1,15 @@
-hours = int(input ("what hour does he need to wake up by"))
-minutes = int(input ("what minutes does he need to wake up by"))
-print("calculateing what time for the alarm to be set")
+def eepy():   
+    hours = int(input ("what hour does he need to wake up by"))
+    minutes = int(input ("what minutes does he need to wake up by"))
+    print("calculateing what time for the alarm to be set")
 
 
-minutes -= 40
-if minutes < 0:
-    hours -= 1
-    minutes = 60 + minutes
-if hours < 0:
-    hours = 24 + hours
-print("alarm set for",hours,"hours",minutes,"minutes")
+    minutes -= 40
+    if minutes < 0:
+        hours -= 1
+        minutes = 60 + minutes
+    if hours < 0:
+        hours = 24 + hours
+    print("alarm set for",hours,"hours",minutes,"minutes")
+
+eepy()
