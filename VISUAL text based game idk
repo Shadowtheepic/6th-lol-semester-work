@@ -25,6 +25,9 @@ direction = 0
 j = input("Welcome to text based game press anything to continue and q to quit ")
 #game loop-----------------------------------------------
 while j != 'q':
+    
+    
+    DX = int(random.randint(1,5))
      
     if lol[geekin][XD] == 0:
         lol[geekin][XD] = DX
