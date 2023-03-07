@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+
+//practice using the "&" operator
+
+void funOne(int a, int& b, char v);
+void funTwo(int& x, int y, char& w);
+void funThree(int g, float& ball, bool& l);
+
+int main() {
+	int  num1, num2;
+	char ch;
+
+	num1 = 10; 
+	num2 = 15;
+	ch = 'A';
+	bool boo = false;
+	float num3 = 1;
+	num3 *= num2;
+
+
+	cout << num1 << " " << num2 << " " << ch << endl;
+	funOne(num1, num2, ch);
+
+	cout << num1 << " " << num2 << " " << ch << endl;
+	
+	funTwo(num2, 25, ch);
+
+	cout << num1 << " " << num2 << " " << ch << endl;
+
+	cout << num2 << " " << num1 << " " << boo << endl;
+
+	funThree(num2, num3, boo);
+	cout << num2 << " " << num1 << " " << boo << endl;
+}
+
+
+void funOne(int a, int& b, char v) {
+	int one; 
+	one = a;
+	a++;
+	b = b * 2;
+	v = 'B';
+	cout << " Inside funOne : ";
+
+	cout << a << " " << b << " " << v << endl;
+}
+
+
+void funTwo(int& x, int y, char& w) {
+	x++;
+	y = y * 2;
+	w = 'G';
+
+
+	cout << " Inside funTwo : ";
+
+	cout << x << " " << y << " " << w << endl;
+}
+
+void funThree(int g, float& ball, bool& l) {
+	if (g < 5000) {
+		g *= 2;
+
+		ball /= g;
+		l = true;
+
+
+		cout << " Inside funThree : ";
+
+		cout << g << " " << ball << " " << l << endl;
+		funThree(g, ball, l);
+	}
+	else
+		cout<<"where ya mom at!!!!!!!!!!!!!!!!" << endl;
+}
