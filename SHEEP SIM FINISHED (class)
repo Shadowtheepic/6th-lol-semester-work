@@ -17,14 +17,14 @@ SheepPic = pygame.image.load("sheep.jpg")
 font = pygame.font.Font('freesansbold.ttf', 32)
 text = font.render('Score:', True, (200, 200, 0))
 text2 = font.render(str(score), True, (200, 200, 0))
-text3 = font.render('YOU WIN!', True, (200, 200, 0))
+text3 = font.render('SHEEP CAUGHT!!!!', True, (200, 200, 0))
 
 #CONSTANTS (not required, just makes code easier to read)
 LEFT = 0
 RIGHT = 1
 UP = 2
 DOWN = 3
-
+#hi Kevin
 
 class Shep:
     def __init__(self,xpos,ypos,dir,touch):
@@ -38,11 +38,11 @@ class Shep:
             self.direction = random.randrange(0, 4) #set random direction
         if self.direction == LEFT and self.xpos > 0:
             self.xpos -=2 #move left
-        elif self.direction == RIGHT and self.xpos < 750:
+        if self.direction == RIGHT and self.xpos < 750:
             self.xpos += 2 #move right
-        elif self.direction == UP and self.ypos < 750: 
+        if self.direction == UP and self.ypos < 750: 
             self.ypos -=2 #move up
-        elif self.direction == DOWN and self.ypos > 0:
+        if self.direction == DOWN and self.ypos > 0:
             self.ypos += 2#move down
 
     def collision(self, PlayerX, PlayerY):
@@ -58,13 +58,16 @@ class Shep:
         #draw sheep
         if self.alive == True: #don't draw them if they're already caught!
         #pygame.draw.rect(screen, (250, 100, 100), (sheep1[0], sheep1[1], 40, 40)) #use this if you don't have a jpg
-            screen.blit(SheepPic, (sheep1[0], sheep1[1]))
+            screen.blit(SheepPic, (self.xpos, self.ypos))
 
 
 
 #create sheep!
+
+shepl = []
 #numbers in list represent xpos, ypos, direction moving, and whether it's been caught or not!
-sheep1 = [200, 400, RIGHT, False]
+for i in range(5):
+    shepl.append(Shep(i*100, i*100, 0, True))
 #make more sheeps here!
 
 
@@ -76,7 +79,7 @@ vx = 0 #x velocity (left/right speed) of player
 vy = 0 #y velocity (up/down speed) of player
 keys = [False, False, False, False] #this list holds whether each key has been pressed
 
-while score<1: #GAME LOOP############################################################
+while score<5: #GAME LOOP############################################################
     clock.tick(60) #FPS
     timer+=1
     
@@ -107,6 +110,8 @@ while score<1: #GAME LOOP#######################################################
                 keys[DOWN] = False
             elif event.key == pygame.K_UP:
                 keys[UP] = False
+
+        
           
     #physics
     #section--------------------------------------------------------------------
@@ -127,10 +132,15 @@ while score<1: #GAME LOOP#######################################################
     else:
        vy = 0
 
+
+    for i in range(len(shepl)):
+            shepl[i].sheepMove()
+
     
 
     #player/sheep collision!
-    collision(xpos, ypos, sheep1)
+    for i in range(len(shepl)):
+        shepl[i].collision(xpos,ypos)
 
     #update player position
     xpos+=vx 
@@ -142,6 +152,10 @@ while score<1: #GAME LOOP#######################################################
     # Section--------------------------------------------------------------------------------
             
     screen.fill((0,0,0)) #wipe screen so it doesn't smear
+
+
+    for i in range(len(shepl)):
+        shepl[i].draw()
   
     #draw player
     pygame.draw.rect(screen, (100, 200, 100), (xpos, ypos, 40, 40))
