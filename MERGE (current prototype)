@@ -1,0 +1,11 @@
+def MERGE(use):
+    deco = use[(len(use+1))/2:]
+    deco2 = use[:(len(use+1))/2]
+    
+    
+    
+    
+lont = [38, 27, 43, 3, 9, 82, 10]
+
+print(MERGE(lont))
+
